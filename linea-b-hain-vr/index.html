@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor 3D del Hain - Realidad Virtual Selk'nam</title>
+  
+  <!-- Carga de A-Frame (Versión estable) -->
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  
+  <!-- Carga de estilos y controlador interactivo del proyecto -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- 1. PANTALLA DE BIENVENIDA Y CARGA -->
+  <div id="welcome-screen">
+    <div class="welcome-card">
+      <h1>Hain <span>3D</span></h1>
+      <p class="subtitle">
+        Bienvenido al espacio ceremonial del Hain del pueblo Selk'nam. A traves de esta experiencia tridimensional, podras interactuar con los espiritus tradicionales y comprender su rol en la cosmovision y el ritual de iniciacion (Wilka Kuti).
+      </p>
+      <button class="start-btn" onclick="iniciarExperiencia()">Entrar al Hain</button>
+    </div>
+  </div>
+
+  <!-- 2. INSTRUCCIÓN DE INTERACCIÓN -->
+  <div id="gaze-instruction">
+    Mueve la cámara y apunta el circulo blanco a los espiritus para interactuar
+  </div>
+
+  <!-- 3. PANEL DE INFORMACIÓN INTACTIVO (HTML OVERLAY) -->
+  <div id="info-overlay">
+    <div class="overlay-header">
+      <span class="overlay-title">Espíritu</span>
+      <button class="close-btn">&times;</button>
+    </div>
+    <div class="overlay-body">
+      <p id="overlay-meaning">Selecciona un espiritu en la escena 3D para conocer su significado...</p>
+      <p id="overlay-painting"></p>
+      <span class="tag">Rol Hain</span>
+    </div>
+  </div>
+
+  <!-- 4. ESCENA 3D (A-FRAME) -->
+  <a-scene shadow="type: pcfsoft" renderer="antialias: true; colorManagement: true">
+    
+    <!-- Definición de Recursos de Sonido y Texturas (Placeholders seguros) -->
+    <a-assets>
+      <!-- Sonido crepitante simulado con oscilador de Web Audio API o archivos si se descargan -->
+      <audio id="viento-amb" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav" preload="auto"></audio>
+    </a-assets>
+
+    <!-- Cielo Nocturno Estrellado Patagónico -->
+    <a-sky color="#050305" animation="property: rotation; to: 0 360 0; loop: true; dur: 600000; easing: linear"></a-sky>
+
+    <!-- Piso / Tierra del Fuego Ancestral -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#1a120f" roughness="0.95" shadow="receive: true"></a-plane>
+
+    <!-- FOGATA CENTRAL -->
+    <a-entity position="0 0.1 -4">
+      <!-- Troncos (Cilindros) -->
+      <a-cylinder color="#3d2314" radius="0.08" height="0.6" rotation="0 0 45" position="-0.15 0 0" shadow="cast: true"></a-cylinder>
+      <a-cylinder color="#3d2314" radius="0.08" height="0.6" rotation="0 0 -45" position="0.15 0 0" shadow="cast: true"></a-cylinder>
+      <a-cylinder color="#4a2e1d" radius="0.08" height="0.6" rotation="45 0 0" position="0 0 -0.15" shadow="cast: true"></a-cylinder>
+      <a-cylinder color="#4a2e1d" radius="0.08" height="0.6" rotation="-45 0 0" position="0 0 0.15" shadow="cast: true"></a-cylinder>
+
+      <!-- Fuego (Cono animado para simular llama parpadeante) -->
+      <a-cone color="#ff6600" radius-bottom="0.25" height="0.6" position="0 0.25 0"
+              material="emissive: #ff3300; emissiveIntensity: 1"
+              animation__flicker_scale="property: scale; to: 1.1 1.2 1.1; dir: alternate; dur: 120; loop: true; easing: easeInOutSine"
+              animation__flicker_color="property: material.color; to: #ffcc00; dir: alternate; dur: 200; loop: true; easing: easeInOutSine">
+      </a-cone>
+
+      <!-- Luz de la Fogata (Crea sombras dinámicas y oscila en intensidad) -->
+      <a-light type="point" color="#ff6600" intensity="2.5" distance="8" castShadow="true" position="0 0.4 0"
+               animation__light="property: intensity; to: 2.1; dir: alternate; dur: 80; loop: true; easing: easeInOutSine">
+      </a-light>
+    </a-entity>
+
+    <!-- ESTRUCTURA CHOZA DEL HAIN (Envolvente de postes de madera representativa) -->
+    <a-entity position="0 0 -4">
+      <!-- Postes principales colocados en círculo alrededor de la fogata -->
+      <a-cylinder position="-3.5 1.5 0" radius="0.08" height="3" rotation="0 0 -15" color="#2c1a10" shadow="cast: true"></a-cylinder>
+      <a-cylinder position="3.5 1.5 0" radius="0.08" height="3" rotation="0 0 15" color="#2c1a10" shadow="cast: true"></a-cylinder>
+      <a-cylinder position="0 1.5 -3.5" radius="0.08" height="3" rotation="-15 0 0" color="#2c1a10" shadow="cast: true"></a-cylinder>
+      <a-cylinder position="0 1.5 3.5" radius="0.08" height="3" rotation="15 0 0" color="#2c1a10" shadow="cast: true"></a-cylinder>
+      <a-cylinder position="-2.5 1.5 -2.5" radius="0.08" height="3" rotation="-10 0 -10" color="#2c1a10" shadow="cast: true"></a-cylinder>
+      <a-cylinder position="2.5 1.5 -2.5" radius="0.08" height="3" rotation="-10 0 10" color="#2c1a10" shadow="cast: true"></a-cylinder>
+    </a-entity>
+
+    <!-- SONIDO AMBIENTAL (Viento Patagónico) -->
+    <a-sound src="#viento-amb" autoplay="false" loop="true" volume="0.35" poolSize="1"></a-sound>
+
+    <!-- LUZ AMBIENTAL TENUE (Para ver las siluetas en las zonas oscuras) -->
+    <a-light type="ambient" color="#111122" intensity="0.3"></a-light>
+
+    <!-- CÁMARA DEL JUGADOR CON CONTROLES Y CURSOR DE MIRADA -->
+    <a-entity id="rig" position="0 1.6 0">
+      <a-camera look-controls="pointerLockEnabled: false" wasd-controls="acceleration: 45">
+        <!-- Cursor tipo retículo (fuse: activa clic automático al mirar objetos interactivos) -->
+        <a-cursor color="#ffffff"
+                  radius-inner="0.015"
+                  radius-outer="0.025"
+                  animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                  fuse="true"
+                  fuse-timeout="1500"
+                  raycaster="objects: .clickable">
+        </a-cursor>
+      </a-camera>
+    </a-entity>
+
+  </a-scene>
+
+</body>
+</html>

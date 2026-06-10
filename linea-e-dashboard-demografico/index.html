@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Demográfico - Impacto Histórico Selk'nam</title>
+  
+  <!-- Carga de Chart.js mediante CDN estable -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="datos_historicos.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="dashboard">
+    <!-- Encabezado del Dashboard -->
+    <header class="db-header">
+      <h1>Panel de Impacto Demográfico Selk'nam</h1>
+      <p>Analisis estadistico e historico de la transicion poblacional en Tierra del Fuego (1880 - 2026)</p>
+    </header>
+
+    <!-- Contenido de Gráficos en Grid -->
+    <main class="db-content">
+      
+      <!-- Ficha Contextual Lateral -->
+      <section class="context-card">
+        <h3>Hito Seleccionado (<span id="txt-year">1880</span>)</h3>
+        <p id="txt-desc" class="desc-text">
+          Arrastra el deslizador inferior para filtrar las épocas y ver cómo las causas coloniales impactaron en la demografía del pueblo originario.
+        </p>
+        
+        <div class="stats-panel">
+          <div class="stat-box">
+            <span class="stat-num" id="stat-pob">4,000</span>
+            <span class="stat-label">Población Estimada</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num text-red" id="stat-reduccion">0%</span>
+            <span class="stat-label">Reducción Poblacional</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gráfico 1: Evolución Demográfica (Línea) -->
+      <section class="chart-card">
+        <h3>Curva de Población Selk'nam</h3>
+        <div class="chart-wrapper">
+          <canvas id="lineChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Gráfico 2: Causas de Impacto Demográfico (Barras) -->
+      <section class="chart-card">
+        <h3>Tasa de Reducción Estimada por Período</h3>
+        <div class="chart-wrapper">
+          <canvas id="barChart"></canvas>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Barra Inferior de Filtro de Tiempo -->
+    <footer class="db-footer">
+      <div class="slider-container">
+        <label for="time-slider">Filtrar Año Inicial: <span id="slider-label">1880</span></label>
+        <input type="range" id="time-slider" min="1880" max="2026" value="1880" step="10">
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

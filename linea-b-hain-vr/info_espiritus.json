@@ -1,0 +1,35 @@
+[
+  {
+    "id": "shoort",
+    "nombre": "Shoort",
+    "significado": "Espíritu de piedra, de naturaleza severa y firme. Es el ejecutor de la disciplina dentro del Hain y representa el orden.",
+    "pintura": "Cuerpo pintado de rojo oscuro con líneas verticales blancas dibujadas con arcilla.",
+    "color": "#8B0000",
+    "posicion_inicial": {"x": -3, "y": 0, "z": -4},
+    "escala": {"x": 1, "y": 1, "z": 1},
+    "modelo_glb": "",
+    "imagen_png": "assets/shoort_real.png"
+  },
+  {
+    "id": "kotaix",
+    "nombre": "Kotaix",
+    "significado": "Espíritu del trueno, juguetón y temido a la vez. Es conocido por sus saltos impredecibles y por asustar a los iniciados.",
+    "pintura": "Gran cabeza con cuernos, cuerpo pintado con patrones de lunares blancos sobre fondo rojo.",
+    "color": "#D2691E",
+    "posicion_inicial": {"x": 3, "y": 0, "z": -4},
+    "escala": {"x": 1.2, "y": 1.2, "z": 1.2},
+    "modelo_glb": "models/kotaix.glb",
+    "imagen_png": ""
+  },
+  {
+    "id": "xalpen",
+    "nombre": "Xalpen",
+    "significado": "Poderosa deidad subterránea femenina del inframundo. Es el espíritu más temido de la ceremonia del Hain.",
+    "pintura": "Color rojo ceniza, asociada a la tierra y al fuego.",
+    "color": "#4A0E17",
+    "posicion_inicial": {"x": 0, "y": 0, "z": -7},
+    "escala": {"x": 2.5, "y": 2.5, "z": 2.5},
+    "modelo_glb": "",
+    "imagen_png": "assets/xalpen_dibujo.png"
+  }
+]

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Xo'on Digital - Inteligencia Artificial Selk'nam</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Contenedor Principal del Dashboard -->
+  <div class="app-container">
+    
+    <!-- Sección Izquierda: Visualización de Máscara SVG Interactiva -->
+    <div class="avatar-section">
+      <div class="avatar-card">
+        <h2>Espíritu Activo: <span id="character-name">Tenenesk</span></h2>
+        
+        <!-- Máscara SVG Selk'nam procedural y animada -->
+        <div class="svg-container">
+          <svg id="xoon-mask" viewBox="0 0 200 300" width="100%" height="100%">
+            <!-- Fondo de la máscara (Forma ovalada tradicional) -->
+            <ellipse cx="100" cy="150" rx="70" ry="120" fill="#a83232" stroke="#111111" stroke-width="4" id="mask-base"/>
+            
+            <!-- Líneas decorativas corporales (Pintura tradicional blanca y negra) -->
+            <line x1="100" y1="30" x2="100" y2="270" stroke="#ffffff" stroke-width="6" stroke-dasharray="8 4"/>
+            <line x1="55" y1="80" x2="145" y2="80" stroke="#111111" stroke-width="4"/>
+            <line x1="55" y1="220" x2="145" y2="220" stroke="#111111" stroke-width="4"/>
+            
+            <!-- Ojos del espíritu -->
+            <ellipse cx="70" cy="110" rx="12" ry="6" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+            <ellipse cx="70" cy="110" rx="4" ry="4" fill="#111111" id="eye-left-pupil"/>
+            
+            <ellipse cx="130" cy="110" rx="12" ry="6" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+            <ellipse cx="130" cy="110" rx="4" ry="4" fill="#111111" id="eye-right-pupil"/>
+            
+            <!-- Boca interactiva (Lip-Sync reactivo variará su escala Y mediante JS) -->
+            <g id="mouth-group">
+              <ellipse cx="100" cy="190" rx="25" ry="10" fill="#111111" id="mouth-base"/>
+              <ellipse cx="100" cy="190" rx="20" ry="4" fill="#ffffff" id="mouth-inner"/>
+            </g>
+          </svg>
+        </div>
+        
+        <p class="avatar-desc">
+          Esta mascara tradicional SVG reacciona dinamicamente a la frecuencia del habla del chaman utilizando la Web Audio API y analisis FFT en tiempo real.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sección Derecha: Chat y Consola Interactiva -->
+    <div class="chat-section">
+      <div class="chat-header">
+        <div class="dot-indicator"></div>
+        <h3>Relatos del Hain - Chaman Tenenesk</h3>
+      </div>
+      
+      <!-- Historial de Chat -->
+      <div class="chat-messages" id="chat-box">
+        <div class="message system-msg">
+          [SISTEMA] Conectado al backend del Xo'on Digital. Escribe tu pregunta para comenzar a oír las leyendas de Tierra del Fuego.
+        </div>
+        <div class="message bot-msg">
+          Que los espiritus te guien. Soy el chaman Tenenesk. Hablo con la sabiduria de nuestros ancestros de Karukinka (Tierra del Fuego). ¿Que deseas conocer sobre nuestro pueblo o el gran ritual del Hain?
+        </div>
+      </div>
+      
+      <!-- Entrada de texto -->
+      <div class="chat-input-area">
+        <input type="text" id="user-input" placeholder="Pregunta por: el Hain, espíritus, quién eres..." autocomplete="off">
+        <button id="send-btn">Preguntar</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

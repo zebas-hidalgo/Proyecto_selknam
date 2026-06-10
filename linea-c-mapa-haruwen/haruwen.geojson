@@ -1,0 +1,86 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Kamuk (Haruwen del Norte)",
+        "clan": "Laloyiyes (Gente del Norte)",
+        "descripcion": "Territorio caracterizado por las estepas y planicies de Tierra del Fuego. Clanes dedicados principalmente a la caza de guanacos y la recoleccion en zonas abiertas.",
+        "tipo": "ancestral"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-68.6, -52.7],
+            [-67.5, -52.7],
+            [-67.2, -53.4],
+            [-68.6, -53.4],
+            [-68.6, -52.7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Penkush (Haruwen del Sur)",
+        "clan": "Penkushiyes (Gente del Sur)",
+        "descripcion": "Zona montanosa y boscosa de Karukinka. Vinculados con los lagos y bosques nativos de lenga. Terreno propicio para la construccion de refugios invernales.",
+        "tipo": "ancestral"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-68.6, -53.5],
+            [-66.8, -53.5],
+            [-66.3, -54.7],
+            [-68.6, -54.7],
+            [-68.6, -53.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Mision Salesiana Nuestra Senora de la Candelaria",
+        "clan": "Mision Salesiana (Historico)",
+        "descripcion": "Fundada en 1893 en la desembocadura del Rio Grande. Lugar de confinamiento y evangelizacion forzada de familias Selk'nam tras el auge de la colonizacion.",
+        "tipo": "historico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-67.63, -53.73]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Estancia San Sebastian",
+        "clan": "Estancia Ganadera (Historico)",
+        "descripcion": "Una de las primeras grandes estancias ovejeras fundadas en el norte de la isla (1894). Simboliza el inicio del cercamiento del territorio ancestral y la expulsion de los Selk'nam de sus zonas de caza.",
+        "tipo": "historico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.58, -53.28]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Campamento Onais (Karukinka)",
+        "clan": "Campamento Temporal",
+        "descripcion": "Zona central de transicion forestal. Utilizada para campamentos familiares de caza en epocas templadas antes del avance colonizador.",
+        "tipo": "ancestral_punto"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.12, -54.08]
+      }
+    }
+  ]
+}

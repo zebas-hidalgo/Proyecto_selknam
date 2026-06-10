@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartografía de los Haruwen - Tierra del Fuego Selk'nam</title>
+  
+  <!-- Leaflet CSS y JS (CDNs Oficiales y Estables) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Estilos y datos de respaldo locales -->
+  <link rel="stylesheet" href="style.css">
+  <script src="datos_respaldo.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Contenedor del Mapa -->
+  <div id="map"></div>
+
+  <!-- Panel Lateral (Sidebar Informativo) -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <h2>Territorios Selk'nam</h2>
+      <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+    </div>
+    
+    <div class="sidebar-body" id="info-content">
+      <p class="welcome-text">
+        Haz clic en cualquier zona (polígono) o marcador en el mapa para revelar la historia de los Haruwen chamanes, campamentos ancestrales o estancias colonizadoras de Tierra del Fuego.
+      </p>
+    </div>
+    
+    <div class="sidebar-footer">
+      <!-- Filtros interactivos para encender/apagar capas -->
+      <h3>Filtros de Mapa</h3>
+      <div class="filter-group">
+        <label>
+          <input type="checkbox" id="chk-ancestral" checked>
+          <span class="color-dot dot-ancestral"></span> Zonas Clanes (Haruwen)
+        </label>
+        <label>
+          <input type="checkbox" id="chk-campamento" checked>
+          <span class="color-dot dot-campamento"></span> Campamentos de Caza
+        </label>
+        <label>
+          <input type="checkbox" id="chk-historico" checked>
+          <span class="color-dot dot-historico"></span> Estancias y Misiones
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón flotante para reabrir el panel si está cerrado -->
+  <button id="open-btn" onclick="toggleSidebar()">&#9776;</button>
+
+</body>
+</html>
