@@ -19,30 +19,42 @@ El proyecto engloba el diseño y desarrollo de seis plataformas y aplicaciones i
 * **Alcance Técnico**: Servidor de desarrollo en Python (Flask), generación de voz sintética (TTS) procesada en memoria y Web Audio API con análisis FFT en JavaScript para deformar y escalar la boca de una máscara vectorial SVG interactiva en tiempo real (Lip-Sync reactivo).
 * **Directorio de Trabajo**: [`linea-a-xoon-digital/`](file:///Users/zebas/proyecto-patrimonio-selknam-completo/linea-a-xoon-digital)
 
+![Vista previa Línea A](assets/images/linea_a_xoon.png)
+
 ### 2. Realidad Virtual del Hain (Línea B)
 * **Concepto**: Reconstrucción tridimensional inmersiva del Hain, el gran espacio ceremonial sagrado donde se realizaba el ritual de iniciación de los *kloketen* (jóvenes iniciados). Los usuarios pueden explorar la choza de troncos y encontrarse cara a cara con los espíritus.
 * **Alcance Técnico**: Escena en Realidad Virtual para navegadores usando A-Frame (HTML/JS) compatible con giroscopios móviles y visores Cardboard. Posicionamiento tridimensional `(X, Y, Z)` de chamanes/espíritus, audio espacial 3D reactivo a la distancia de la fogata y paneles informativos tridimensionales con rotación tipo billboard.
 * **Directorio de Trabajo**: [`linea-b-hain-vr/`](file:///Users/zebas/proyecto-patrimonio-selknam-completo/linea-b-hain-vr)
+
+![Vista previa Línea B](assets/images/linea_b_hain.png)
 
 ### 3. Cartografía de los Haruwen (Línea C)
 * **Concepto**: Mapa interactivo geográfico que delimita los *Haruwen* (los territorios y cotos de caza familiares en los que se dividía tradicionalmente Tierra del Fuego) y mapea puntos clave de campamentos y el impacto demográfico de las estancias colonizadoras.
 * **Alcance Técnico**: Mapa dinámico con Leaflet.js sobre capas de azulejos oscuras (CartoDB Dark Matter). Modelado de bases de datos geográficas mediante archivos GeoJSON (con polígonos y puntos reales de Tierra del Fuego), filtros de mapa por categorías y panel lateral con diseño glassmorphism responsivo.
 * **Directorio de Trabajo**: [`linea-c-mapa-haruwen/`](file:///Users/zebas/proyecto-patrimonio-selknam-completo/linea-c-mapa-haruwen)
 
+![Vista previa Línea C](assets/images/linea_c_haruwen.png)
+
 ### 4. Memoria Viva en Realidad Aumentada (Línea D)
 * **Concepto**: Aplicación web de Realidad Aumentada que utiliza la cámara de dispositivos móviles para reconocer fotografías en blanco y negro de los rituales del archivo de Martín Gusinde y proyectar sobre ellas las fotografías restauradas a color, acompañadas de cantos tradicionales y relatos explicativos.
 * **Alcance Técnico**: Reconocimiento visual e Image Tracking mediante MindAR.js en combinación con A-Frame. Diseño de marcadores interactivos imprimibles, captura de pantalla web y flujos seguros de permisos WebRTC bajo HTTPS.
 * **Directorio de Trabajo**: [`linea-d-ar-memoria/`](file:///Users/zebas/proyecto-patrimonio-selknam-completo/linea-d-ar-memoria)
+
+![Vista previa Línea D](assets/images/linea_d_ar.png)
 
 ### 5. Dashboard del Fin del Mundo (Línea E)
 * **Concepto**: Panel analítico e interactivo que expone la evolución demográfica del pueblo Selk'nam desde la época pre-colonial (1880) pasando por el trágico colapso de la colonización ovina, hasta la resiliencia y el crecimiento de las comunidades en el siglo XXI (2026).
 * **Alcance Técnico**: Visualización interactiva con Chart.js de gráficos de líneas y barras en una rejilla (CSS Grid) oscura responsiva. Filtro interactivo mediante controles deslizantes de tiempo (sliders) y cálculo dinámico de estadísticas de reducción y recuperación porcentual en el DOM.
 * **Directorio de Trabajo**: [`linea-e-dashboard-demografico/`](file:///Users/zebas/proyecto-patrimonio-selknam-completo/linea-e-dashboard-demografico)
 
+![Vista previa Línea E](assets/images/linea_e_dashboard.png)
+
 ### 6. Videojuego "Sobrevivir al Invierno" (Línea F)
 * **Concepto**: Novela visual en 2D donde los jugadores toman decisiones críticas de supervivencia (como buscar leña, refugiarse, salir a cazar o compartir el calor) guiando a su clan familiar Selk'nam para resistir el crudo invierno en la Patagonia.
 * **Alcance Técnico**: Videojuego desarrollado en Godot Engine 4. Lógica de ramificación narrativa, gestión de variables lógicas vinculadas (`temperatura`, `energía`, `refugio`), control de señales (Signals) y diseño **100% procedural en GDScript** (los botones, paneles y textos se dibujan en tiempo de ejecución para evitar fallas del editor).
 * **Directorio de Trabajo**: [`linea-f-novela-godot/`](file:///Users/zebas/proyecto-patrimonio-selknam-completo/linea-f-novela-godot)
+
+![Vista previa Línea F](assets/images/linea_f_godot.png)
 
 ---
 

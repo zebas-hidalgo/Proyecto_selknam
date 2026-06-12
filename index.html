@@ -113,7 +113,7 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 35px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -132,6 +132,7 @@
       height: 100%;
       background: var(--ocre);
       transition: all 0.3s ease;
+      z-index: 10;
     }
 
     .card.line-a::before { background: var(--ocre); }
@@ -148,7 +149,7 @@
     }
 
     .card-header {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .line-number {
@@ -157,18 +158,40 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--coral);
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
     .card-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* Thumbnail Styles */
+    .thumbnail-container {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: #000;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .card:hover .card-thumbnail {
+      transform: scale(1.06);
     }
 
     .card-desc {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       font-weight: 300;
       line-height: 1.5;
@@ -178,7 +201,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 20px 0;
+      margin: 15px 0 20px 0;
     }
 
     .tech-pill {
@@ -226,13 +249,6 @@
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: var(--ocre);
-    }
-
-    .btn-disabled {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      color: rgba(255, 255, 255, 0.25);
-      cursor: not-allowed;
     }
 
     /* Footer */
@@ -289,6 +305,9 @@
           <div class="card-header">
             <div class="line-number">Línea A</div>
             <h2 class="card-title">El Xo'on Digital</h2>
+            <div class="thumbnail-container">
+              <img class="card-thumbnail" src="./assets/images/linea_a_xoon.png" alt="Mockup de El Xo'on Digital">
+            </div>
             <p class="card-desc">Conversación en tiempo real con un chamán Selk'nam (avatar interactivo SVG con Lip-Sync reactivo y síntesis de voz mediante Flask y Web Audio API).</p>
           </div>
           <div class="tech-stack">
@@ -307,6 +326,9 @@
           <div class="card-header">
             <div class="line-number">Línea B</div>
             <h2 class="card-title">Realidad Virtual del Hain</h2>
+            <div class="thumbnail-container">
+              <img class="card-thumbnail" src="./assets/images/linea_b_hain.png" alt="Mockup de Hain VR">
+            </div>
             <p class="card-desc">Reconstrucción tridimensional inmersiva del gran espacio ceremonial del Hain. Explorable mediante giroscopios móviles y visores Cardboard.</p>
           </div>
           <div class="tech-stack">
@@ -325,6 +347,9 @@
           <div class="card-header">
             <div class="line-number">Línea C</div>
             <h2 class="card-title">Cartografía de los Haruwen</h2>
+            <div class="thumbnail-container">
+              <img class="card-thumbnail" src="./assets/images/linea_c_haruwen.png" alt="Mockup del Mapa de los Haruwen">
+            </div>
             <p class="card-desc">Mapa interactivo geográfico que delimita los Haruwen (territorios familiares Selk'nam) en la Isla Grande de Tierra del Fuego.</p>
           </div>
           <div class="tech-stack">
@@ -343,6 +368,9 @@
           <div class="card-header">
             <div class="line-number">Línea D</div>
             <h2 class="card-title">Memoria Viva en AR</h2>
+            <div class="thumbnail-container">
+              <img class="card-thumbnail" src="./assets/images/linea_d_ar.png" alt="Mockup de Realidad Aumentada">
+            </div>
             <p class="card-desc">Realidad Aumentada sobre las fotografías en blanco y negro del archivo de Martín Gusinde, proyectando imágenes restauradas y cantos.</p>
           </div>
           <div class="tech-stack">
@@ -361,6 +389,9 @@
           <div class="card-header">
             <div class="line-number">Línea E</div>
             <h2 class="card-title">Dashboard Demográfico</h2>
+            <div class="thumbnail-container">
+              <img class="card-thumbnail" src="./assets/images/linea_e_dashboard.png" alt="Mockup de Dashboard">
+            </div>
             <p class="card-desc">Visualización analítica e interactiva del impacto demográfico y colonización ovina desde 1880 hasta el crecimiento actual.</p>
           </div>
           <div class="tech-stack">
@@ -379,6 +410,9 @@
           <div class="card-header">
             <div class="line-number">Línea F</div>
             <h2 class="card-title">Sobrevivir al Invierno</h2>
+            <div class="thumbnail-container">
+              <img class="card-thumbnail" src="./assets/images/linea_f_godot.png" alt="Mockup del Videojuego de Godot">
+            </div>
             <p class="card-desc">Videojuego 2D de supervivencia y decisiones narrativas para el resguardo de un clan Selk'nam ante el clima extremo de la Patagonia.</p>
           </div>
           <div class="tech-stack">
