@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import io
+import os
 import requests
 from flask import Flask, request, jsonify, send_file
 from gtts import gTTS
@@ -91,5 +92,6 @@ def tts():
         return jsonify({"error": f"Falla en la generacion de audio: {e}"}), 500
 
 if __name__ == "__main__":
-    print("Iniciando Servidor Flask de El Xo'on Digital en http://127.0.0.1:5000")
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    host = os.environ.get("FLASK_RUN_HOST", "127.0.0.1")
+    print(f"Iniciando Servidor Flask de El Xo'on Digital en http://{host}:5000")
+    app.run(host=host, port=5000, debug=True)

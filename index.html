@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilka Kuti - Proyecto Tecnológico Selk'nam</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #0b0c10;
+      --card-bg: rgba(26, 26, 36, 0.45);
+      --card-border: rgba(212, 163, 115, 0.15);
+      --card-hover-border: rgba(224, 122, 95, 0.5);
+      
+      /* Selk'nam Inspired Palette */
+      --ocre: #d4a373;
+      --arcilla: #c36a59;
+      --coral: #e07a5f;
+      --text-main: #f4f6fc;
+      --text-muted: #a0a5b5;
+      
+      --glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(195, 106, 89, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(212, 163, 115, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      flex: 1;
+    }
+
+    /* Header Design */
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--text-main) 30%, var(--ocre) 70%, var(--coral) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 25px auto;
+      font-weight: 300;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ocre);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    /* Card Design */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: var(--glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--ocre);
+      transition: all 0.3s ease;
+    }
+
+    .card.line-a::before { background: var(--ocre); }
+    .card.line-b::before { background: var(--arcilla); }
+    .card.line-c::before { background: var(--coral); }
+    .card.line-d::before { background: #5f85e0; }
+    .card.line-e::before { background: #3cc39b; }
+    .card.line-f::before { background: #ab6ae3; }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 12px 40px 0 rgba(224, 122, 95, 0.15);
+    }
+
+    .card-header {
+      margin-bottom: 20px;
+    }
+
+    .line-number {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 5px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 20px 0;
+    }
+
+    .tech-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: monospace;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--ocre) 0%, var(--coral) 100%);
+      color: #0b0c10;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--ocre);
+    }
+
+    .btn-disabled {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.25);
+      cursor: not-allowed;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: auto;
+    }
+
+    footer a {
+      color: var(--ocre);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--coral);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Wilka Kuti</h1>
+      <p>Proyecto Tecnológico y Patrimonial para la preservación, estudio y revitalización de la cultura ancestral y memoria histórica del pueblo originario Selk'nam de Karukinka.</p>
+      
+      <div class="badge-container">
+        <span class="badge">👨‍💻 6 Líneas Técnicas</span>
+        <span class="badge">🌌 WebVR & WebAR</span>
+        <span class="badge">🕹️ Godot 4</span>
+        <span class="badge">⚙️ Flask API</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      
+      <!-- LINEA A -->
+      <div class="card line-a">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="line-number">Línea A</div>
+            <h2 class="card-title">El Xo'on Digital</h2>
+            <p class="card-desc">Conversación en tiempo real con un chamán Selk'nam (avatar interactivo SVG con Lip-Sync reactivo y síntesis de voz mediante Flask y Web Audio API).</p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Python Flask</span>
+            <span class="tech-pill">Web Audio API</span>
+            <span class="tech-pill">FFT Analyzer</span>
+            <span class="tech-pill">SVG Mask</span>
+          </div>
+        </div>
+        <a href="./linea-a-xoon-digital/" class="btn btn-primary">Lanzar Aplicación</a>
+      </div>
+
+      <!-- LINEA B -->
+      <div class="card line-b">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="line-number">Línea B</div>
+            <h2 class="card-title">Realidad Virtual del Hain</h2>
+            <p class="card-desc">Reconstrucción tridimensional inmersiva del gran espacio ceremonial del Hain. Explorable mediante giroscopios móviles y visores Cardboard.</p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">A-Frame VR</span>
+            <span class="tech-pill">Three.js</span>
+            <span class="tech-pill">Spatial Audio</span>
+            <span class="tech-pill">HTML/JS</span>
+          </div>
+        </div>
+        <a href="./linea-b-hain-vr/" class="btn btn-primary">Entrar en VR</a>
+      </div>
+
+      <!-- LINEA C -->
+      <div class="card line-c">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="line-number">Línea C</div>
+            <h2 class="card-title">Cartografía de los Haruwen</h2>
+            <p class="card-desc">Mapa interactivo geográfico que delimita los Haruwen (territorios familiares Selk'nam) en la Isla Grande de Tierra del Fuego.</p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Leaflet.js</span>
+            <span class="tech-pill">GeoJSON</span>
+            <span class="tech-pill">CartoDB Dark</span>
+            <span class="tech-pill">Glassmorphism</span>
+          </div>
+        </div>
+        <a href="./linea-c-mapa-haruwen/" class="btn btn-primary">Ver Mapa Histórico</a>
+      </div>
+
+      <!-- LINEA D -->
+      <div class="card line-d">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="line-number">Línea D</div>
+            <h2 class="card-title">Memoria Viva en AR</h2>
+            <p class="card-desc">Realidad Aumentada sobre las fotografías en blanco y negro del archivo de Martín Gusinde, proyectando imágenes restauradas y cantos.</p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">MindAR.js</span>
+            <span class="tech-pill">WebRTC Camera</span>
+            <span class="tech-pill">Image Tracking</span>
+            <span class="tech-pill">A-Frame</span>
+          </div>
+        </div>
+        <a href="./linea-d-ar-memoria/" class="btn btn-primary">Abrir Cámara AR</a>
+      </div>
+
+      <!-- LINEA E -->
+      <div class="card line-e">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="line-number">Línea E</div>
+            <h2 class="card-title">Dashboard Demográfico</h2>
+            <p class="card-desc">Visualización analítica e interactiva del impacto demográfico y colonización ovina desde 1880 hasta el crecimiento actual.</p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Chart.js</span>
+            <span class="tech-pill">CSS Grid</span>
+            <span class="tech-pill">Time Sliders</span>
+            <span class="tech-pill">DOM Data</span>
+          </div>
+        </div>
+        <a href="./linea-e-dashboard-demografico/" class="btn btn-primary">Abrir Dashboard</a>
+      </div>
+
+      <!-- LINEA F -->
+      <div class="card line-f">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="line-number">Línea F</div>
+            <h2 class="card-title">Sobrevivir al Invierno</h2>
+            <p class="card-desc">Videojuego 2D de supervivencia y decisiones narrativas para el resguardo de un clan Selk'nam ante el clima extremo de la Patagonia.</p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Godot 4 Engine</span>
+            <span class="tech-pill">GDScript</span>
+            <span class="tech-pill">Procedural UI</span>
+            <span class="tech-pill">State Signals</span>
+          </div>
+        </div>
+        <a href="https://github.com/zebas-hidalgo/Proyecto_selknam/releases" class="btn btn-secondary">Descargar en Releases</a>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Proyecto Tecnológico y Patrimonial Selk'nam © 2026 | Desarrollado en el marco educativo | Código fuente en <a href="https://github.com/zebas-hidalgo/Proyecto_selknam">GitHub</a></p>
+  </footer>
+
+</body>
+</html>

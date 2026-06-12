@@ -1,5 +1,9 @@
 # Proyecto Tecnológico y Patrimonial Selk'nam: Wilka Kuti
 
+![Estado del Proyecto](https://img.shields.io/badge/Estado-En%20Desarrollo-orange?style=for-the-badge)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge)
+![Tecnologias](https://img.shields.io/badge/Tecnologias-A--Frame%20%7C%20MindAR%20%7C%20Leaflet%20%7C%20Godot%20%7C%20Flask-blue?style=for-the-badge)
+
 El **Proyecto Tecnológico y Patrimonial Selk'nam** es una iniciativa de desarrollo interdisciplinar que busca **revitalizar, preservar y difundir la cosmovisión, historia y estética del pueblo originario Selk'nam** (habitante ancestral de la Isla Grande de Tierra del Fuego, Karukinka). 
 
 A través del uso de herramientas tecnológicas modernas e Inteligencia Artificial asistida, los estudiantes investigan el registro histórico y construyen prototipos interactivos y funcionales de software. El proyecto busca conectar el pensamiento computacional con el rescate patrimonial y la memoria histórica de nuestro territorio.
